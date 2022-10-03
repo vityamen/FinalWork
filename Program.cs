@@ -15,7 +15,6 @@ int size = Convert.ToInt32(Console.ReadLine());
 string[] array = GetArray(size);
 PrintArray(array);
 Console.WriteLine();
-
 string[] result = ChangeArray(array);
 PrintArray(result);
 
