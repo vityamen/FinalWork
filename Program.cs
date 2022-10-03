@@ -14,6 +14,11 @@ int size = Convert.ToInt32(Console.ReadLine());
 
 string[] array = GetArray(size);
 PrintArray(array);
+Console.WriteLine();
+
+string[] result = ChangeArray(array);
+PrintArray(result);
+
 
 string[] GetArray(int size)
 {
@@ -39,5 +44,20 @@ void PrintArray(string[] array)
         else Console.Write($"\"{array[i]}\"");
         }
     }
+}
+
+string[] ChangeArray(string[] array)
+{
+    int j = 0;
+    string[] result = new string[array.Length];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            result[j] = array[i];
+            j++;
+        }
+    }
+    return result;
 }
 
