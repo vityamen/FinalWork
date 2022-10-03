@@ -7,7 +7,7 @@
 Пример:
 ["Hello", "2", "world", :-)] -> ["2", ":-)"]
 */
-
+int j = 0;
 Console.Clear();
 Console.Write("Введите количество слов в строке: ");
 int size = Convert.ToInt32(Console.ReadLine());
@@ -15,9 +15,10 @@ int size = Convert.ToInt32(Console.ReadLine());
 string[] array = GetArray(size);
 PrintArray(array);
 Console.WriteLine();
-string[] result = ChangeArray(array);
-PrintArray(result);
 
+string[] changeArray = ChangeArray(array);
+string[] result = ReplaceArray(changeArray);
+PrintArray(result);
 
 string[] GetArray(int size)
 {
@@ -47,16 +48,28 @@ void PrintArray(string[] array)
 
 string[] ChangeArray(string[] array)
 {
-    int j = 0;
-    string[] result = new string[array.Length];
+    string[] changeArray = new string[array.Length];
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length <= 3)
         {
-            result[j] = array[i];
+            changeArray[j] = array[i];
             j++;
         }
     }
-    return result;
+    return changeArray;
 }
 
+string[] ReplaceArray(string[] array)
+{
+    string[] result = new string[j];
+    for (int i = 0; i < j; i++)
+    {
+        if (array[i].Length == 0)
+        {
+            i++;
+        }
+        else result[i]= array[i];
+    }
+    return result;
+}
